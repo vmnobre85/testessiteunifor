@@ -19,5 +19,6 @@
   "homepage": "https://github.com/vmnobre85/testessiteunifor#readme",
   "devDependencies": {
     "cypress": "^9.5.2"
-  }
+  },
+  "dependencies": {}
 }
