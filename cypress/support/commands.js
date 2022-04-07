@@ -1,25 +1,23 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+/// <reference types="cypress" />
+
+
+
+Cypress.Commands.add('login', (email, password) => { 
+    cy.request({
+        url: 'https://preprod-guanabara-customer-api-smartbus.oreons.com//api/CustomerAuth/Login',
+        method: 'POST',
+        headers: {"Content-Type": "application/json"},
+        body:{ 
+            "user": {"Email": email, "Password": password}}
+    }).then(resp =>{
+        resp.headers['set-cookie'].forEach(cookie =>{
+            const firstpart = cookie.split(';')[0]
+            const divisor = firstpart.indexOf('=')
+            const key = firstpart.substring(0, divisor)
+            const value = firstpart.substring(divisor+1)
+            cy.setCookie(key, value)
+        })
+
+    })
+    cy.visit('https://preprod-guanabara-ecommerce-smartbus.oreons.com/login')
+ })

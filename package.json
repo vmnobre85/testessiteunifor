@@ -1,24 +1,30 @@
 {
-  "name": "testessiteunifor",
+  "name": "uniforonline",
   "version": "1.0.0",
-  "description": "Protótipo de teste do site da Unifor",
+  "description": "Testes automatizados Ecommerce Util",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cytest": "cypress run --record --key 703f0e40-fb12-4462-9ce0-8a6c1ac946b0"
+    
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vmnobre85/testessiteunifor.git"
+    "url": "git+https://github.com/vmnobre85/EcommerceUtil.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/vmnobre85/testessiteunifor/issues"
+    "url": "https://github.com/vmnobre85/EcommerceUtil/issues"
   },
-  "homepage": "https://github.com/vmnobre85/testessiteunifor#readme",
+  "homepage": "https://github.com/vmnobre85/EcommerceUtil#readme",
   "devDependencies": {
-    "cypress": "^9.5.2"
+    "cypress": "^9.5.3"
   },
-  "dependencies": {}
+  "dependencies": {
+    "cypress-cucumber-preprocessor": "^4.3.1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
+  }
 }

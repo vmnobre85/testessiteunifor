@@ -1,5 +1,8 @@
-{  
-    "viewportWidth": 1500,
-    "viewportHeight": 1200,
-    "defaultCommandTimeout":9000
+{
+  "baseUrl": "https://celula07.unifor.br/acesso/app/autenticacao",
+  "defaultCommandTimeout": 90000,
+  "responseTimeout": 90000,
+  "chromeWebSecurity": false,
+  "testFiles": "**/*.{feature,features}",
+  "projectId": "3kxczs"
 }
